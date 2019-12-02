@@ -1,0 +1,106 @@
+/*General*/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body, html {
+   background-image: linear-gradient(rgb(78, 235, 188), rgb(101, 56, 160));
+   height: 100vh;
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+}
+
+/*Header*/
+
+h1 {
+    font-size: 80px;
+}
+
+.header-container {
+    position: absolute;
+    left: 35%;
+    transform: translateX(-40%);
+}
+
+/*Sketch Pad*/
+
+#grid-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    top: 100px;
+}
+
+#square-grid {
+    display: grid;
+    grid-template-columns: repeat(16, 50px);
+    grid-template-rows: repeat(16, 50px);
+    border: 5px solid rgb(0, 0, 0);
+    width: 800px;
+    height: 800px;
+    z-index: -1;
+}
+
+.grid-square {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    background-color: rgb(196, 196, 196);
+}
+
+.filled {
+    background-color: rgb(134, 134, 134);
+}
+
+/*Clear Button*/
+
+#clear-button {
+    float: right;
+    margin: 20px 670px 0 0;
+    width: 200px;
+    height: 70px;
+    background-color: rgb(108, 80, 145);
+    border: 3px solid rgb(108, 80, 145);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    font-size: 40px;
+}
+
+#clear-button:hover {
+    background-color: rgb(56, 41, 77);
+}
+
+#rgb-button:active {
+    font-weight: bold;
+    background-color: rgb(40, 30, 56);
+}
+
+/*RGB Button*/
+
+#rgb-button {
+    float: right;
+    margin-right: 30px;
+    margin-top: 20px;
+    width: 150px;
+    height: 70px;
+    background-color: rgb(108, 80, 145);
+    border: 3px solid rgb(108, 80, 145);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    font-size: 25px;
+}
+
+#rgb-button:hover {
+    background-color: rgb(56, 41, 77);
+}
+
+#rgb-button:active {
+    font-weight: bold;
+    background-color: rgb(40, 30, 56);
+}
