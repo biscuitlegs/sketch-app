@@ -14,42 +14,29 @@ body, html {
    background-position: center;
 }
 
-/*Header*/
-
-h1 {
-    font-size: 80px;
-}
-
-.header-container {
-    position: absolute;
-    left: 35%;
-    transform: translateX(-40%);
-}
 
 /*Sketch Pad*/
 
 #grid-container {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
-    width: 800px;
-    height: 800px;
-    top: 100px;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #square-grid {
     display: grid;
-    grid-template-columns: repeat(16, 50px);
-    grid-template-rows: repeat(16, 50px);
+    grid-template-columns: repeat(16, 25px);
+    grid-template-rows: repeat(16, 25px);
     border: 5px solid rgb(0, 0, 0);
-    width: 800px;
-    height: 800px;
+    width: 400px;
+    height: 400px;
     z-index: -1;
 }
 
 .grid-square {
-    width: 50px;
-    height: 50px;
+    width: 25px;
+    height: 25px;
     display: inline-block;
     background-color: rgb(196, 196, 196);
 }
@@ -58,18 +45,27 @@ h1 {
     background-color: rgb(134, 134, 134);
 }
 
+/*Buttons*/
+
+section.buttons {
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%, -10%);
+}
+
 /*Clear Button*/
 
 #clear-button {
-    float: right;
-    margin: 20px 670px 0 0;
-    width: 200px;
+    width: 150px;
     height: 70px;
     background-color: rgb(108, 80, 145);
     border: 3px solid rgb(108, 80, 145);
     color: rgb(255, 255, 255);
     border-radius: 10px;
     font-size: 40px;
+    margin: 0 20px;
+    outline: none;
 }
 
 #clear-button:hover {
@@ -84,16 +80,15 @@ h1 {
 /*RGB Button*/
 
 #rgb-button {
-    float: right;
-    margin-right: 30px;
-    margin-top: 20px;
     width: 150px;
     height: 70px;
     background-color: rgb(108, 80, 145);
     border: 3px solid rgb(108, 80, 145);
     color: rgb(255, 255, 255);
     border-radius: 10px;
-    font-size: 25px;
+    font-size: 40px;
+    margin: 0 20px;
+    outline: none;
 }
 
 #rgb-button:hover {
@@ -103,4 +98,34 @@ h1 {
 #rgb-button:active {
     font-weight: bold;
     background-color: rgb(40, 30, 56);
+}
+
+/*Screen sizes*/
+@media only screen and (max-width: 800px) {
+    #rgb-button, #clear-button{
+        width: 90px;
+        height: 45px;
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 530px) {
+    #rgb-button, #clear-button{
+        width: 70px;
+        height: 35px;
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-height: 640px) {
+    section.buttons {
+        left: 50%;
+        top: 2%;
+        transform: translate(-50%, -2%);
+    }
+
+    @media only screen and (max-height: 580px) {
+        section.buttons {
+            display: none;
+        }
 }

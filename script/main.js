@@ -21,8 +21,8 @@ function clearGrid() {
     createSquares(userInput**2);
 
     let newSquares = document.querySelectorAll('.grid-square');
-    let newSquareHeight = 800 / userInput;
-    let newSquareWidth = 800 / userInput;
+    let newSquareHeight = 400 / userInput;
+    let newSquareWidth = 400 / userInput;
     newSquares.forEach(square => square.style.cssText = `height: ${newSquareHeight}px; width: ${newSquareWidth}px`);
 
     squareGrid.style.cssText = `grid-template-columns: repeat(${userInput}, ${newSquareWidth}px); grid-template-rows: repeat(${userInput}, ${newSquareHeight}px)`;
