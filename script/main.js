@@ -1,3 +1,5 @@
+/*Sketch Pad*/
+
 function createSquares(gridArea) {
     for (let i = 0; i < gridArea; i++) {
         let gridSquare = document.createElement('div');
@@ -26,7 +28,21 @@ function clearGrid() {
     newSquares.forEach(square => square.style.cssText = `height: ${newSquareHeight}px; width: ${newSquareWidth}px`);
 
     squareGrid.style.cssText = `grid-template-columns: repeat(${userInput}, ${newSquareWidth}px); grid-template-rows: repeat(${userInput}, ${newSquareHeight}px)`;
+
+    if (rgbOn) {
+        enableRGB();
+    }
 }
+
+const clearButton = document.querySelector('#clear-button');
+clearButton.addEventListener('click', clearGrid);
+createSquares(256);
+
+
+/* RGB */
+
+rgbOn = false;
+const rgbButton = document.querySelector('#rgb-button');
 
 function enableRGB() {
     function getRandomNum() {
@@ -35,11 +51,55 @@ function enableRGB() {
     const squares = document.querySelectorAll('.grid-square');
 
     squares.forEach(square => square.addEventListener('mouseover', () => square.style.backgroundColor = `rgb(${getRandomNum()}, ${getRandomNum()}, ${getRandomNum()})`));
+
+    rgbOn = true;
 }
 
-const rgbButton = document.querySelector('#rgb-button');
-rgbButton.addEventListener('click', () => enableRGB());
+function disableRGB() {
+    const squares = document.querySelectorAll('.grid-square');
 
-const clearButton = document.querySelector('#clear-button');
-clearButton.addEventListener('click', clearGrid);
-createSquares(256);
+    squares.forEach(square => square.addEventListener('mouseover', () => square.style.backgroundColor = 'rgb(134, 134, 134)'));
+
+    rgbOn = false;
+}
+
+rgbButton.addEventListener('click', () => {
+    if (rgbOn && buttonOn) {
+        disableRGB();
+    } else {
+        enableRGB();
+    }
+
+    if (buttonOn) {
+        slideOff(rgbButton);
+    } else {
+        slideOn(rgbButton);
+    }
+});
+
+
+
+
+/* Settings Window */
+
+function slideOn(button) {
+    button.style.transform = 'translateX(100px)'
+    slider.style.backgroundColor = '#B1CC74';
+    buttonOn = true;
+}
+
+function slideOff(button) {
+    button.style.transform = ''
+    slider.style.backgroundColor = '#D8DBE2';
+    buttonOn = false;
+}
+
+const settingsWindow = document.querySelector('.settings-window');
+const settingsButton = document.querySelector('.settings-button');
+const slider = document.querySelector('.slider');
+
+buttonOn = false;
+
+settingsButton.addEventListener('click', () => {
+    settingsWindow.classList.toggle('invisible');
+})
